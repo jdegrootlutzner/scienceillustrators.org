@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { Navigation } from '../../components/Navigation';
+import Markdown from '../../components/Markdown.astro';
+
+export async function getStaticPaths() {
+  const articleEntries = await getCollection('articles');
+  return articleEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout>
+  <Navigation client:load />
+  <main class="container py-8">
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold mb-2">{entry.data.title}</h1>
+      <p class="text-muted-foreground">{entry.data.description}</p>
+      <div class="flex items-center gap-2 mt-4 text-sm text-muted-foreground">
+        <span>{entry.data.date.toLocaleDateString()}</span>
+        {entry.data.author && (
+          <>
+            <span>•</span>
+            <span>{entry.data.author}</span>
+          </>
+        )}
+      </div>
+    </div>
+    <Markdown>
+      <Content />
+    </Markdown>
+  </main>
+</Layout>
