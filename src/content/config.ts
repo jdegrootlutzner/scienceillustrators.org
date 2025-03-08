@@ -11,6 +11,17 @@ const articlesCollection = defineCollection({
   }),
 });
 
+const teamCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    name: z.string(),
+    role: z.string().optional(),
+    image: z.string().optional(),
+    order: z.number().optional().default(999),
+  }),
+});
+
 export const collections = {
   'articles': articlesCollection,
+  'team': teamCollection,
 };

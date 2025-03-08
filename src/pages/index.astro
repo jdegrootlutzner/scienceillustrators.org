@@ -3,8 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import { Navigation } from '../components/Navigation';
 import { getCollection } from 'astro:content';
 import { Button } from '../components/ui/button';
+import TeamMember from '../components/TeamMember.astro';
 
 const articles = await getCollection('articles');
+const teamMembers = await getCollection('team');
+const sortedTeamMembers = teamMembers.sort((a, b) => (a.data.order || 999) - (b.data.order || 999));
 ---
 
 <Layout>
@@ -71,33 +74,14 @@ const articles = await getCollection('articles');
           Meet the club
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Team Member 1 -->
-          <div class="text-center">
-            <div class="bg-white aspect-square mb-6 rounded-lg"></div>
-            <h3 class="font-bold text-xl">Carolyn Ton</h3>
-            <p class="text-sm text-gray-600 mb-3">founder</p>
-            <p class="text-gray-800">
-              Researching brain folding in early embryonic development.
-            </p>
-          </div>
-          <!-- Team Member 2 -->
-          <div class="text-center">
-            <div class="bg-white aspect-square mb-6 rounded-lg"></div>
-            <h3 class="font-bold text-xl">NAME</h3>
-            <p class="text-sm text-gray-600 mb-3"></p>
-            <p class="text-gray-800">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempoud
-            </p>
-          </div>
-          <!-- Team Member 3 -->
-          <div class="text-center">
-            <div class="bg-white aspect-square mb-6 rounded-lg"></div>
-            <h3 class="font-bold text-xl">NAME</h3>
-            <p class="text-sm text-gray-600 mb-3"></p>
-            <p class="text-gray-800">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempoud
-            </p>
-          </div>
+          {sortedTeamMembers.map(member => (
+            <TeamMember 
+              name={member.data.name}
+              role={member.data.role}
+              image={member.data.image}
+              bio={member.body}
+            />
+          ))}
         </div>
       </div>
     </section>

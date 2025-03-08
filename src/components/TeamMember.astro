@@ -1,0 +1,21 @@
+---
+interface Props {
+  name: string;
+  role?: string;
+  image?: string;
+  bio: string;
+}
+
+const { name, role = '', image = '/images/team/placeholder.jpg', bio } = Astro.props;
+---
+
+<div class="text-center">
+  <div class="bg-white aspect-square mb-6 rounded-lg overflow-hidden">
+    {image && <img src={image} alt={name} class="w-full h-full object-cover" />}
+  </div>
+  <h3 class="font-bold text-xl">{name}</h3>
+  {role && <p class="text-sm text-gray-600 mb-3">{role}</p>}
+  <p class="text-gray-800">
+    {bio}
+  </p>
+</div>
