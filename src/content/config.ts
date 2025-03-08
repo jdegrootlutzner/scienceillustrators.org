@@ -21,7 +21,18 @@ const teamCollection = defineCollection({
   }),
 });
 
+const partnerCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    name: z.string(),
+    logo: z.string(),
+    website: z.string().url().optional(),
+    order: z.number().optional().default(999),
+  }),
+});
+
 export const collections = {
   'articles': articlesCollection,
   'team': teamCollection,
+  'partners': partnerCollection,
 };

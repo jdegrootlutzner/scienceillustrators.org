@@ -4,10 +4,14 @@ import { Navigation } from '../components/Navigation';
 import { getCollection } from 'astro:content';
 import { Button } from '../components/ui/button';
 import TeamMember from '../components/TeamMember.astro';
+import Partner from '../components/Partner.astro';
 
 const articles = await getCollection('articles');
 const teamMembers = await getCollection('team');
+const partners = await getCollection('partners');
+
 const sortedTeamMembers = teamMembers.sort((a, b) => (a.data.order || 999) - (b.data.order || 999));
+const sortedPartners = partners.sort((a, b) => (a.data.order || 999) - (b.data.order || 999));
 ---
 
 <Layout>
@@ -23,11 +27,15 @@ const sortedTeamMembers = teamMembers.sort((a, b) => (a.data.order || 999) - (b.
         We believe research is only as good as its communication. That's why we strive to make science more engaging and understandable for all audiences through clear visual storytelling.
       </p>
       
-      <!-- Logos Section -->
+      <!-- Partners Section -->
       <div class="flex justify-center items-center gap-10 py-8">
-        <img src="/images/weill-cornell-medicine-logo.png" alt="Weill Cornell Medicine" class="h-12" />
-        <img src="/images/memorial-sloan-kettering-logo.png" alt="Memorial Sloan Kettering Cancer Center" class="h-12" />
-        <img src="/images/rockefeller-university-logo.png" alt="The Rockefeller University" class="h-12" />
+        {sortedPartners.map(partner => (
+          <Partner 
+            name={partner.data.name}
+            logo={partner.data.logo}
+            website={partner.data.website}
+          />
+        ))}
       </div>
     </section>
 
