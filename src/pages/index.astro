@@ -28,7 +28,7 @@ const sortedPartners = partners.sort((a, b) => (a.data.order || 999) - (b.data.o
       </p>
       
       <!-- Partners Section -->
-      <div class="flex justify-center items-center gap-10 py-8">
+      <div class="flex justify-center items-center gap-10 py-8 flex-wrap">
         {sortedPartners.map(partner => (
           <Partner 
             name={partner.data.name}
@@ -43,8 +43,8 @@ const sortedPartners = partners.sort((a, b) => (a.data.order || 999) - (b.data.o
     <section class="py-20 bg-slate-50">
       <div class="container grid grid-cols-1 md:grid-cols-2 gap-12">
         <div>
-          <h2 class="text-4xl font-bold mb-4">
-            Join the<br />Community
+          <h2 class="text-4xl font-bold mb-4 max-w-48">
+            Join the Community
           </h2>
           <div class="w-24 h-1 bg-amber-500 mb-6"></div>
           <p class="text-lg mb-8">
@@ -63,7 +63,7 @@ const sortedPartners = partners.sort((a, b) => (a.data.order || 999) - (b.data.o
       <div class="container grid grid-cols-1 md:grid-cols-2 gap-12">
         <div class="bg-gray-600 rounded-lg aspect-video"></div>
         <div>
-          <h2 class="text-4xl font-bold mb-4">
+          <h2 class="text-4xl font-bold mb-4 max-w-48">
             Need help with<br />a diagram?
           </h2>
           <div class="w-24 h-1 bg-blue-500 mb-6"></div>
