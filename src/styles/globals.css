@@ -79,3 +79,59 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+@keyframes float {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(10px, -10px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes float-reverse {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(-15px, 15px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.float-medium {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-reverse {
+  animation: float-reverse 10s ease-in-out infinite;
+}
+
+.pulse-slow {
+  animation: pulse 8s ease-in-out infinite;
+}
+
+.pulse-medium {
+  animation: pulse 5s ease-in-out infinite;
+}
