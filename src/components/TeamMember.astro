@@ -10,8 +10,22 @@ const { name, role = '', image = '/images/team/placeholder.jpg', bio } = Astro.p
 ---
 
 <div class="text-center">
-  <div class="bg-white aspect-square mb-6 rounded-lg overflow-hidden">
-    {image && <img src={image} alt={name} class="w-full h-full object-cover" />}
+  <div class="aspect-square mb-6 rounded-lg overflow-hidden border-gray-600 border">
+    <div class="w-full h-full bg-gradient-to-br from-[#ffcfd3] via-[#fab5bc] to-[#F9858F] relative">
+      <div class="absolute top-1/3 left-1/3 w-3/5 h-3/5 float-slow">
+        <div class="w-full h-full rounded-full bg-gradient-radial from-[#ffb8c0] to-transparent opacity-70 mix-blend-overlay blur-[18px]"></div>
+      </div>
+      <div class="absolute bottom-1/4 right-1/3 w-3/5 h-3/5 float-reverse">
+        <div class="w-full h-full rounded-full bg-gradient-radial from-[#ffd9de] to-transparent opacity-55 mix-blend-soft-light blur-[25px]"></div>
+      </div>
+      <div class="absolute top-1/4 right-1/4 w-4/5 h-2/5 pulse-medium">
+        <div class="w-full h-full rounded-full bg-gradient-radial from-[#f67683] to-transparent opacity-60 mix-blend-color-dodge blur-[40px]"></div>
+      </div>
+      <div class="absolute -top-1/4 -right-1/4 w-4/5 h-4/5 float-circular">
+        <div class="w-full h-full rounded-full bg-gradient-radial from-[#ffccd2] to-transparent opacity-60 mix-blend-screen blur-[30px]"></div>
+      </div>
+      {image && <img src={image} alt={name} class="w-full h-full object-cover relative z-10" />}
+    </div>
   </div>
   <h3 class="font-bold text-xl">{name}</h3>
   {role && <p class="text-sm text-gray-600 mb-3">{role}</p>}
