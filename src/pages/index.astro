@@ -28,9 +28,9 @@ const renderedFaqs = await Promise.all(
 
 <Layout>
   <Navigation client:load />
-  <main class="max-w-3xl mx-auto pb-12">
+  <main class="max-w-3xl mx-auto">
     <!-- Hero Section -->
-    <section class="container py-16 text-center">
+    <section id="home" class="container py-16 text-center">
       <h1 class="text-5xl font-bold max-w-3xl mx-auto mb-4 capitalize">
         Compelling research deserves compelling visuals.
       </h1>
@@ -41,7 +41,7 @@ const renderedFaqs = await Promise.all(
       
       
       <!-- Partners Section -->
-      <div class="flex justify-center items-center gap-10 py-8 flex-wrap">
+      <div id="partners" class="flex justify-center items-center gap-10 py-8 flex-wrap">
         {sortedPartners.map(partner => (
           <Partner 
             name={partner.data.name}
@@ -53,7 +53,7 @@ const renderedFaqs = await Promise.all(
     </section>
 
     <!-- Join the Community Section -->
-    <section class="py-8">
+    <section id="join" class="py-8">
       <div class="container grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-24 justify-center items-center">
         <div>
           <h2 class="text-4xl font-bold mb-4 max-w-48 capitalize">
@@ -87,7 +87,7 @@ const renderedFaqs = await Promise.all(
     </section>
 
     <!-- Need Help Section -->
-    <section class="py-20">
+    <section id="help" class="py-20">
       <div class="container grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-24 justify-center items-center">
         <div class="md:order-2">
           <h2 class="text-4xl font-bold mb-4 max-w-48 capitalize">
@@ -120,7 +120,7 @@ const renderedFaqs = await Promise.all(
     </section>
 
     <!-- Meet the Club Section -->
-    <section class="py-20">
+    <section id="team" class="py-20">
       <div class="container">
         <h2 class="text-4xl font-bold text-center mb-4 capitalize">
           Meet the club
@@ -139,8 +139,30 @@ const renderedFaqs = await Promise.all(
       </div>
     </section>
 
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="py-20">
+      <div class="container">
+        <h2 class="text-4xl font-bold text-center mb-4 capitalize">
+          Join our newsletter
+        </h2>
+        <div class="w-36 h-1 bg-[#F9858F] mb-6 mx-auto"></div>
+        <div class="max-w-xl mx-auto text-center">
+          <p class="text-lg mb-8 text-muted-foreground">
+            Stay up to date with our latest events, workshops, and resources. We'll send you updates about upcoming meetings and opportunities to collaborate.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <input type="email" placeholder="Your email address" class="w-full sm:w-auto flex-grow p-3 border border-gray-300 rounded" />
+            <Button class="h-auto px-8 py-3 text-base font-medium bg-black text-white">Subscribe</Button>
+          </div>
+          <p class="text-sm mt-4 text-muted-foreground">
+            We respect your privacy and will never share your information.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ Section -->
-    <section class="py-20">
+    <section id="faq" class="">
       <div class="container">
         <h2 class="text-4xl font-bold text-center mb-4 capitalize">
           FAQ

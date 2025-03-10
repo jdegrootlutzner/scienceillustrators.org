@@ -98,13 +98,16 @@ export function Navigation() {
             </div>
           </a>
           <nav className="hidden md:flex gap-6">
-            <a href="/" className="text-muted-foreground hover:text-foreground transition-colors">Home</a>
-            <a href="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</a>
-            <a href="/blog" className="text-muted-foreground hover:text-foreground transition-colors">Blog</a>
+            <a href="#home" className="text-muted-foreground hover:text-foreground transition-colors">Home</a>
+            <a href="#join" className="text-muted-foreground hover:text-foreground transition-colors">Join</a>
+            <a href="#help" className="text-muted-foreground hover:text-foreground transition-colors">Get Help</a>
+            <a href="#team" className="text-muted-foreground hover:text-foreground transition-colors">Team</a>
+            <a href="#newsletter" className="text-muted-foreground hover:text-foreground transition-colors">Newsletter</a>
+            <a href="#faq" className="text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
           </nav>
         </div>
         <div>
-          <Button>Contact</Button>
+          <Button onClick={() => document.getElementById('help')?.scrollIntoView({ behavior: 'smooth' })}>Contact</Button>
         </div>
       </div>
     </header>
