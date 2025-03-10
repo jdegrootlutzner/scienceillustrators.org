@@ -14,5 +14,9 @@ export default defineConfig({
     }),
   ],
 
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    runtime: {
+      mode: 'local'
+    }
+  }),
 });
