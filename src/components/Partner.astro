@@ -10,8 +10,8 @@ const { name, logo, website } = Astro.props;
 
 {website ? (
   <a href={website} target="_blank" rel="noopener noreferrer" class="inline-block">
-    <img src={logo} alt={name} class="h-12" />
+    <img src={logo} alt={name} class="max-h-12 max-w-32" />
   </a>
 ) : (
-  <img src={logo} alt={name} class="h-12" />
+  <img src={logo} alt={name} class="max-h-12 max-w-32" />
 )}
