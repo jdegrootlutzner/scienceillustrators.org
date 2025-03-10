@@ -59,7 +59,7 @@ export function Navigation() {
         <div className="flex items-center gap-6">
           <a 
             href="/" 
-            className="h-10 w-64 overflow-hidden flex items-center"
+            className="h-10 w-64 overflow-hidden flex items-center hidden sm:flex"
             ref={logoContainerRef}
             aria-label="Science Illustrators home"
           >
