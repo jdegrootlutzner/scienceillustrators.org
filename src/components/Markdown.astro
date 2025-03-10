@@ -1,13 +1,14 @@
 ---
-const { content } = Astro.props;
+const { content, class: className = "" } = Astro.props;
 ---
 
-<article class="prose prose-slate max-w-3xl mx-auto px-4 py-8">
+<article class={`prose prose-slate ${className}`}>
   <slot />
+  {content && <Fragment set:html={content} />}
 </article>
 
 <style>
   .prose {
-    @apply prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline;
+    @apply prose-headings:text-foreground prose-p:text-neutral-700 prose-a:text-primary prose-a:no-underline hover:prose-a:underline;
   }
 </style>

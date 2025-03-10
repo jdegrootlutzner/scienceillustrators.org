@@ -5,13 +5,25 @@ import { getCollection } from 'astro:content';
 import { Button } from '../components/ui/button';
 import TeamMember from '../components/TeamMember.astro';
 import Partner from '../components/Partner.astro';
+import FaqItem from '../components/FaqItem.astro';
+import Markdown from '../components/Markdown.astro';
 
 const articles = await getCollection('articles');
 const teamMembers = await getCollection('team');
 const partners = await getCollection('partners');
+const faqs = await getCollection('faqs');
 
 const sortedTeamMembers = teamMembers.sort((a, b) => (a.data.order || 999) - (b.data.order || 999));
 const sortedPartners = partners.sort((a, b) => (a.data.order || 999) - (b.data.order || 999));
+const sortedFaqs = faqs.sort((a, b) => (a.data.order || 999) - (b.data.order || 999));
+
+// Render FAQ content
+const renderedFaqs = await Promise.all(
+  sortedFaqs.map(async (faq) => {
+    const { Content } = await faq.render();
+    return { ...faq, Content };
+  })
+);
 ---
 
 <Layout>
@@ -126,5 +138,27 @@ const sortedPartners = partners.sort((a, b) => (a.data.order || 999) - (b.data.o
         </div>
       </div>
     </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20">
+      <div class="container">
+        <h2 class="text-4xl font-bold text-center mb-4 capitalize">
+          FAQ
+        </h2>
+        <div class="w-36 h-1 bg-[#548FA7] mb-6 mx-auto"></div>
+        <div class="max-w-2xl mx-auto">
+          <div class="space-y-4">
+            {renderedFaqs.map(({ data, Content }) => (
+              <FaqItem question={data.question}>
+                <div class="prose prose-sm max-w-none prose-ul:pl-5 prose-ul:mt-2 prose-ul:space-y-1 prose-li:marker:text-gray-500 prose-p:mt-2">
+                  <Content />
+                </div>
+              </FaqItem>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>
+

@@ -31,8 +31,17 @@ const partnerCollection = defineCollection({
   }),
 });
 
+const faqCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    question: z.string(),
+    order: z.number().optional().default(999),
+  }),
+});
+
 export const collections = {
   'articles': articlesCollection,
   'team': teamCollection,
   'partners': partnerCollection,
+  'faqs': faqCollection,
 };
