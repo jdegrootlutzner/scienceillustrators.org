@@ -1,8 +1,8 @@
 ---
 name: "Carolyn Ton"
-role: "founder"
-image: "/images/team/carolyn-ton.jpg"
+role: "Founder & President"
+image: "/images/team/carolyn-ton.png"
 order: 1
 ---
 
-Researching brain folding in early embryonic development.
+Self-taught Adobe Illustrator enthusiast and PhD student researching how the early brain folds itself from a sheet into a tube-like structure. Often seen exploring NYC by CitiBike or staring at honeypot ants at the Natural History Museum.
