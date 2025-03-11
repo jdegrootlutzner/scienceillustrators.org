@@ -107,7 +107,7 @@ export function Navigation() {
           </nav>
         </div>
         <div>
-          <Button onClick={() => document.getElementById('help')?.scrollIntoView({ behavior: 'smooth' })}>Contact</Button>
+          <Button onClick={() => document.getElementById('join')?.scrollIntoView({ behavior: 'smooth' })}>Contact</Button>
         </div>
       </div>
     </header>
